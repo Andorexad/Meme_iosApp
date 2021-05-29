@@ -7,6 +7,13 @@
 
 import UIKit
 
+struct Meme{
+    var topText: String
+    var bottomText: String
+    var oriImage: UIImage
+    var editedImage: UIImage
+}
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
                       UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -14,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var textfieldTOP: UITextField!
     @IBOutlet weak var textfieldBOTTOM: UITextField!
   
@@ -22,6 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shareButton.isEnabled=false
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
@@ -77,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imagePickerView.contentMode=UIView.ContentMode.scaleAspectFit
             imagePickerView.image = image
+            shareButton.isEnabled=true
         }
         textfieldBOTTOM.isHidden = false
         textfieldTOP.isHidden = false
@@ -107,7 +117,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
-    
+    // adjust keyboard
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
@@ -131,6 +141,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // create your new meme
+    func save(){
+        let meme = Meme(topText: textfieldTOP.text!, bottomText: textfieldBOTTOM.text!, oriImage: imagePickerView.image!, editedImage: generateMemedImage())
+        //return meme
+    }
+    func generateMemedImage() -> UIImage {
+
+        // Hide toolbar and navbar
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.setToolbarHidden(true, animated: false)
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        // Show toolbar and navbar
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.setToolbarHidden(false, animated: false)
+
+        return memedImage
+    }
+    
+    @IBAction func share(_ sender: Any){
+        //generate a memed image
+        let memedImage=generateMemedImage()
+        //define an instance of the ActivityViewController
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        self.present(controller, animated: true, completion: nil)
+        controller.completionWithItemsHandler = {
+            (activityType, completed, returnedItems, error) -> Void in
+            if completed {
+                self.save()
+                controller.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
 }
 

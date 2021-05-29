@@ -47,6 +47,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv3-jd-I1S">
+                                <rect key="frame" x="73" y="90" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPV-c4-FtK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,13 +75,14 @@
                     <connections>
                         <outlet property="cameraButton" destination="5ve-dS-xTF" id="dnh-lq-Jv1"/>
                         <outlet property="imagePickerView" destination="FJP-UP-ubh" id="2ck-nR-aVo"/>
+                        <outlet property="shareButton" destination="Sv3-jd-I1S" id="BwZ-W2-k9g"/>
                         <outlet property="textfieldBOTTOM" destination="7dL-ns-Xhr" id="A08-ss-o1L"/>
                         <outlet property="textfieldTOP" destination="9qf-0L-NrN" id="xwU-5C-sUq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="78"/>
+            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>
