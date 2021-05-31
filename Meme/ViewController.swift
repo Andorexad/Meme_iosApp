@@ -26,6 +26,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var textfieldBOTTOM: UITextField!
   
     
+    @IBAction func cancelEditPage(_ sender: Any) {
+        jumpToSentMemes()
+    }
+    func jumpToSentMemes(){
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -102,14 +108,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         newText = newText.replacingCharacters(in: range, with: string) as NSString
         return true;
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == textfieldTOP {
-            textField.text = ""
+            if textField == textfieldTOP && textField.text == "TOP"{
+                textField.text = " "
+            }
+            if textField == textfieldBOTTOM && textField.text == "BOTTOM"{
+                textField.text = " "
+            }
         }
-        if textField == textfieldBOTTOM {
-            textField.text = ""
-        }
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -144,10 +151,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // create your new meme
-    func save(){
-        let meme = Meme(topText: textfieldTOP.text!, bottomText: textfieldBOTTOM.text!, oriImage: imagePickerView.image!, editedImage: generateMemedImage())
-        //return meme
+    func save() {
+        let newMeme = Meme(topText: textfieldTOP.text!, bottomText: textfieldBOTTOM.text!, oriImage: imagePickerView.image!, editedImage: generateMemedImage())
+        
+      
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(newMeme)
+        
     }
+    
     func generateMemedImage() -> UIImage {
 
         // Hide toolbar and navbar
@@ -173,14 +187,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         //define an instance of the ActivityViewController
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.present(controller, animated: true, completion: nil)
-        controller.completionWithItemsHandler = {
-            (activityType, completed, returnedItems, error) -> Void in
+        controller.completionWithItemsHandler = {(activityType, completed, returnedItems, error)  in
             if completed {
                 self.save()
                 controller.dismiss(animated: true, completion: nil)
+                self.jumpToSentMemes()
             }
         }
+        //present(controller, animated: true)
         
     }
+    
+    
+   
+    
+    
+    
+    
+    
 }
 

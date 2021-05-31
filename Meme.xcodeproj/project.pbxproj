@@ -13,6 +13,10 @@
 		F0399C98265FB89000083DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0399C96265FB89000083DEB /* Main.storyboard */; };
 		F0399C9A265FB89400083DEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0399C99265FB89400083DEB /* Assets.xcassets */; };
 		F0399C9D265FB89400083DEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0399C9B265FB89400083DEB /* LaunchScreen.storyboard */; };
+		F05C92AB2664961C003D072C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C92AA2664961C003D072C /* CollectionViewCell.swift */; };
+		F05C92AE2664C390003D072C /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C92AD2664C390003D072C /* detailViewController.swift */; };
+		F0A26772266487C40062AA77 /* memeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26771266487C40062AA77 /* memeCollectionViewController.swift */; };
+		F0F323AC2665291900CA995E /* memeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F323AB2665291900CA995E /* memeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		F0399C99265FB89400083DEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0399C9C265FB89400083DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0399C9E265FB89400083DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05C92AA2664961C003D072C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F05C92AD2664C390003D072C /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		F0A26771266487C40062AA77 /* memeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeCollectionViewController.swift; sourceTree = "<group>"; };
+		F0F323AB2665291900CA995E /* memeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 				F0399C90265FB89000083DEB /* AppDelegate.swift */,
 				F0399C92265FB89000083DEB /* SceneDelegate.swift */,
 				F0399C94265FB89000083DEB /* ViewController.swift */,
+				F0F323AB2665291900CA995E /* memeTableViewController.swift */,
+				F0A26771266487C40062AA77 /* memeCollectionViewController.swift */,
+				F05C92AD2664C390003D072C /* detailViewController.swift */,
+				F05C92AA2664961C003D072C /* CollectionViewCell.swift */,
 				F0399C96265FB89000083DEB /* Main.storyboard */,
 				F0399C99265FB89400083DEB /* Assets.xcassets */,
 				F0399C9B265FB89400083DEB /* LaunchScreen.storyboard */,
@@ -137,9 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05C92AB2664961C003D072C /* CollectionViewCell.swift in Sources */,
+				F0A26772266487C40062AA77 /* memeCollectionViewController.swift in Sources */,
+				F0F323AC2665291900CA995E /* memeTableViewController.swift in Sources */,
 				F0399C95265FB89000083DEB /* ViewController.swift in Sources */,
 				F0399C91265FB89000083DEB /* AppDelegate.swift in Sources */,
 				F0399C93265FB89000083DEB /* SceneDelegate.swift in Sources */,
+				F05C92AE2664C390003D072C /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
