@@ -7,13 +7,6 @@
 
 import UIKit
 
-struct Meme{
-    var topText: String
-    var bottomText: String
-    var oriImage: UIImage
-    var editedImage: UIImage
-}
-
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
                       UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -32,7 +25,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     func jumpToSentMemes(){
         self.dismiss(animated: true, completion: nil)
     }
-    
+    func setupTextField(_ textField: UITextField, text: String) {
+        textField.delegate = self
+        textField.isHidden = true
+        textField.text=text
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,26 +39,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         // textField setting
-        textfieldBOTTOM.delegate = self
-        textfieldTOP.delegate = self
+        setupTextField(textfieldTOP, text: "TOP")
+        setupTextField(textfieldBOTTOM, text: "BOTTOM")
         
-        textfieldBOTTOM.isHidden = true
-        textfieldTOP.isHidden = true
-
-        textfieldBOTTOM.text="BOTTOM"
-        textfieldTOP.text="TOP"
         
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor(ciColor: .black),
-            NSAttributedString.Key.foregroundColor: UIColor(ciColor: .black),
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth:  5
-        ]
+              .strokeColor: UIColor.black,
+              .foregroundColor: UIColor.white,
+              .font: UIFont(name: "HelveticaNeue-CondensedBlack", size:40)!,
+              .strokeWidth: -3.0
+          ]
         
         textfieldBOTTOM.defaultTextAttributes = memeTextAttributes
         textfieldTOP.defaultTextAttributes = memeTextAttributes
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
@@ -72,19 +65,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         unsubscribeFromKeyboardNotifications()
     }
     
-    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+    func presentPickerViewController(source: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        presentPickerViewController(source: .photoLibrary)
+    }
+    
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        presentPickerViewController(source: .camera)
     }
     
     
@@ -182,9 +175,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func share(_ sender: Any){
-        //generate a memed image
         let memedImage=generateMemedImage()
-        //define an instance of the ActivityViewController
+
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.present(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = {(activityType, completed, returnedItems, error)  in
@@ -194,8 +186,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.jumpToSentMemes()
             }
         }
-        //present(controller, animated: true)
-        
     }
     
     

@@ -11,9 +11,9 @@ private let reuseIdentifier = "Cell"
 
 class memeCollectionViewController: UICollectionViewController {
     
-    
-    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -26,21 +26,13 @@ class memeCollectionViewController: UICollectionViewController {
         collectionView.dataSource = self
         self.collectionView.reloadData()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        self.collectionView.reloadData()
-
-    }
-
-
-    // MARK: UICollectionViewDataSource
-
+ 
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
+
+    
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,6 +62,8 @@ class memeCollectionViewController: UICollectionViewController {
         navigationController!.pushViewController(detailController, animated: true)
 
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

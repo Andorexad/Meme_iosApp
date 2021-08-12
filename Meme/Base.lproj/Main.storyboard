@@ -83,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="rnG-HX-XF7"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="rnG-HX-XF7"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -118,7 +118,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0aP-Nl-q0h">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0aP-Nl-q0h">
                             <size key="itemSize" width="190" height="181"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -183,7 +183,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="KYm-mP-DrM"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="KYm-mP-DrM"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -201,11 +201,11 @@
             <objects>
                 <viewController title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Meme" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-AO-iqZ">
-                                <rect key="frame" x="0.0" y="793" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <items>
                                     <barButtonItem image="photo" catalog="system" id="hay-XN-Y1I">
                                         <connections>
@@ -220,31 +220,30 @@
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-UP-ubh">
-                                <rect key="frame" x="30" y="271" width="354" height="300"/>
+                                <rect key="frame" x="30" y="298" width="354" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="YUw-eW-A7m"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qf-0L-NrN">
-                                <rect key="frame" x="191" y="227" width="32" height="34"/>
+                                <rect key="frame" x="191" y="254" width="32" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-ns-Xhr">
-                                <rect key="frame" x="191" y="581" width="32" height="34"/>
+                                <rect key="frame" x="191" y="608" width="32" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv3-jd-I1S">
-                                <rect key="frame" x="73" y="46" width="52" height="47"/>
+                                <rect key="frame" x="73" y="90" width="52" height="30"/>
                                 <state key="normal" image="square.and.arrow.up" catalog="system"/>
                                 <connections>
                                     <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dre-7c-T3R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4d-f1-Ahy">
-                                <rect key="frame" x="190" y="58" width="21" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4d-f1-Ahy">
+                                <rect key="frame" x="133" y="94" width="21" height="22"/>
                                 <state key="normal" image="arrowshape.turn.up.backward" catalog="system"/>
                                 <connections>
                                     <action selector="cancelEditPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNy-tt-l0v"/>
@@ -255,11 +254,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9qf-0L-NrN" firstAttribute="bottom" secondItem="FJP-UP-ubh" secondAttribute="top" constant="-10" id="2na-mN-ZG3"/>
+                            <constraint firstItem="r4d-f1-Ahy" firstAttribute="top" secondItem="Sv3-jd-I1S" secondAttribute="bottom" constant="-26" id="3a4-eb-CGE"/>
                             <constraint firstAttribute="trailing" secondItem="jgc-AO-iqZ" secondAttribute="trailing" id="4dW-Qh-Pxq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FJP-UP-ubh" secondAttribute="trailing" constant="30" id="6cL-56-F9A"/>
                             <constraint firstItem="FJP-UP-ubh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7og-9u-MgE"/>
                             <constraint firstItem="7dL-ns-Xhr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EoB-jI-xNM"/>
                             <constraint firstItem="Sv3-jd-I1S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="46" id="GAW-Ul-PaO"/>
+                            <constraint firstItem="r4d-f1-Ahy" firstAttribute="leading" secondItem="Sv3-jd-I1S" secondAttribute="trailing" constant="8" id="M8K-B5-rOE"/>
                             <constraint firstItem="jgc-AO-iqZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OD4-9s-uah"/>
                             <constraint firstItem="FJP-UP-ubh" firstAttribute="top" secondItem="Sv3-jd-I1S" secondAttribute="bottom" constant="178" id="fTl-Un-jNj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sv3-jd-I1S" secondAttribute="trailing" constant="289" id="hHc-BR-Sew"/>
@@ -282,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="173"/>
+            <point key="canvasLocation" x="540.57971014492762" y="172.76785714285714"/>
         </scene>
         <!--detailViewController-->
         <scene sceneID="Atr-cw-Xih">

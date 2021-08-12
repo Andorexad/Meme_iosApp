@@ -20,11 +20,11 @@ class memeTableViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
-    override func viewDidAppear(_ animated: Bool) {
+   /* override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.tableView.reloadData()
-    }
+    }*/
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
